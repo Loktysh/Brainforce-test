@@ -1,0 +1,432 @@
+* {
+    margin: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input:active,
+input:focus,
+button:active,
+button:focus {
+    outline: none;
+    outline-style: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+$white: #FFFFFF;
+$gray-light: #F4F4F4;
+$gray: #828282;
+$black: #333333;
+$main: #FFDB2D;
+$main-light: #FFE568;
+
+@mixin font-15 {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 130%;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+@mixin font-16 ($color) {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 130%;
+    color: $color;
+}
+
+@mixin font-16-card ($color) {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: $color;
+}
+
+@mixin font-18 {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 128%;
+    letter-spacing: 0.02em;
+}
+@mixin font-24 {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    color: #333333;
+}
+@mixin font-30 {
+    font-family: Geometria;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 132%;
+    color: $black;
+}
+
+@font-face {
+    font-family: 'Geometria';
+    src: url('./Geometria-Regular.eot');
+    src: local('./Geometria Regular'), local('Geometria-Regular'),
+        url('./Geometria-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./Geometria-Regular.woff2') format('woff2'),
+        url('./Geometria-Regular.woff') format('woff'),
+        url('./Geometria-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $white;
+}
+
+.section-container {
+    width: 100%;
+    padding-left: calc((100vw - 1440px)/2 + 30px);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: $white;
+    @media screen and (min-width: 1440px) { 
+        display: flex;
+        align-items: center;
+        height: 100px;
+        max-width: 1440px;
+        padding-left: 30px;
+    }
+    @media screen and (max-width: 1440px - 1px) and (min-width: 768px) { 
+        flex-wrap: wrap;
+        row-gap: 10px;
+        height: auto;
+        max-width: 768px;
+        padding: 5px;
+    }
+    @media screen and (max-width: 768px - 1px) and (min-width: 320px) { 
+        flex-wrap: wrap;
+        row-gap: 10px;
+        height: auto;
+        max-width: 320px;
+        padding: 2px;
+    }
+}
+.header__logo {
+    // margin-top: -10px;
+    width: 43.93px;
+    height: 52.8px;
+}
+.header__nav {
+    display: flex;
+    margin-left: 70px;
+    ul {
+        display: flex;
+        flex-direction: row;
+        column-gap: 39px;
+    }
+
+    li > a {
+        @include font-16($black);
+    }
+    @media screen and (max-width: 1440px - 1px) and (min-width: 768px) { 
+        margin-left: 15px;
+        align-items: center;
+        ul {
+            column-gap: 10px;
+        }
+    }
+    @media screen and (max-width: 768px - 1px) and (min-width: 320px) {
+        margin-left: 90px;
+        ul {
+            flex-direction: column;
+            align-items: center;
+            column-gap: 10px;
+        }
+    }
+}
+.header__phone {
+    margin-left: 70px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    a:hover {
+        text-decoration: underline 2px;
+    }
+    @media screen and (max-width: 1440px - 1px) and (min-width: 768px) { 
+        margin-left: 10px;
+    }
+    @media screen and (max-width: 768px - 1px) and (min-width: 320px) {
+        margin-left: 105px;
+    }
+}
+
+.phone--header a {
+    @include font-16($black);
+}
+
+.header__search {
+    margin-left: 131px;
+    width: 77px;
+    border-bottom: 1px dashed $black;
+    @include font-18;
+    @media screen and (max-width: 1440px - 1px) and (min-width: 768px) { 
+        margin-left: 0px;
+    }
+    @media screen and (max-width: 768px - 1px) and (min-width: 320px) {
+        margin-left: 120px;
+    }
+}
+
+.header__button {
+    margin-left: 36px;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 20px;
+    border: 1px solid $black;
+    border-radius: 8px;
+    background-color: $white;
+    @include font-15;
+    @media screen and (max-width: 1440px - 1px) and (min-width: 768px) { 
+        margin-left: 10px;
+        align-self: baseline;
+        padding: 8px 10px;
+    }
+    @media screen and (max-width: 768px - 1px) and (min-width: 320px) {
+        margin-left: 90px;
+        align-self: baseline;
+        padding: 8px 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+main {
+    display: flex;
+    max-height: 2061px;
+    width: 100%;
+    padding-top: 67px;
+    @media screen and (min-width: 1440px) { 
+        display: flex;
+        align-items: center;
+        // height: 100px;
+        max-width: 1440px;
+        padding-left: 30px;
+    }
+    h1 {
+        @include font-30();
+    }
+    h2 {
+        @include font-18();
+    }
+    h3 {
+        @include font-16($gray);
+    }
+}
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+.product-card {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+.chat {
+    width: 447px;
+    height: 764px;
+    background-color: aqua;
+}
+.product-spec-name {
+    @include font-24;
+}
+.product-spec-name-underline {
+    height: 2px;
+    background-color: $main;
+    margin-left: 20px;
+    margin-right: -35px;
+    margin-top: 2px;
+}
+.product-specs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    width: 680px;
+    // background-color: #828282;
+    li {
+        border-radius: 8px;
+        background-color: $gray-light;
+        padding: 26px 40px 26px 30px;
+    }
+}
+.main-header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: 400px;
+}
+.product-card__name-wrapper {
+    @include font-24();
+}
+.accrodion-instance {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.accordion-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    h3 {
+        width: 92%;
+        @include font-16-card($black);
+    }
+}
+.accordion-description {
+    width: 91%;
+    @include font-16($black);
+}
+
+.rotateable {
+    transform: rotate(0deg);
+    transition: transform .5s ease;
+}
+.rotated { 
+    transform: rotate(45deg);
+    transition: transform .5s ease;
+}
+.product-wrapper {
+    display: flex;
+    column-gap: 55px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+    height: 803px;
+    background-color: rgb(15, 7, 7);
+}
